@@ -1,0 +1,2 @@
+# myWeChatApp
+app for wechat
