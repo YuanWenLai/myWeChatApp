@@ -1,0 +1,15 @@
+{
+  "pages": [
+  
+    "pages/classic/classic"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat1",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#fff",
+    "enablePullDownRefresh":false
+  },
+  "sitemapLocation": "sitemap.json"
+}

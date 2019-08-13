@@ -1,0 +1,5 @@
+<view class="classic-container">
+    <image class="movie_bg" src="http://bl.7yue.pro/images/movie.8.png" />
+    <image class="movie_tag" src="images/movie@tag.png"></image>
+    <text class="content">{{content}}</text>
+</view>
