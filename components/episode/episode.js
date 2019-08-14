@@ -28,12 +28,10 @@ Component({
     let date = new Date()
     let year = date.getFullYear()
     let month = date.getMonth()
-
     this.setData({
       year:year,
       month:this.data.month[month]
     })
-    console.log(this.data)
   },
 
   /**

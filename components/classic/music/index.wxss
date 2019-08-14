@@ -9,6 +9,7 @@
   height: 422rpx;
   margin-top: 60rpx;
   border-radius: 50%;
+  color: rgba(200, 201, 201, 0.86);
 }
 
 .player-img {
@@ -29,4 +30,22 @@
 .classic-container .content{
   font-size: 36rpx;
   max-width: 550rpx;
+}
+
+.rotation{
+  -webkit-transform: rotate(360deg);
+  animation: rotation 15s linear infinite;
+  -moz-animation: rotation 15s linear infinite;
+  -webkit-animation: rotation 15s linear infinite;
+  -o-animation: rotation 15s linear infinite;
+}
+
+@-webkit-keyframes rotation {
+  from{
+    -webkit-transform: rotate(0deg);
+  }
+
+  to{
+    -webkit-transform: rotate(360deg);
+  }
 }

@@ -1,9 +1,9 @@
-import {Http} from "../utils/http";
+import {Http} from "../utils/httpPromise";
 
 class LikeModel extends Http{
-  like(behavior,artId,category){
+  like =async function(behavior,artId,category){
     let url = behavior == 'like' ? 'like' : "like/cancle"
-    this.request({
+    const result = await this.request({
       url:url,
       method:'Post',
       data: {
@@ -11,12 +11,13 @@ class LikeModel extends Http{
         type:category
       }
     })
+    return result
   }
-  getClassicLikeStatus(artId,category,callback){
-    this.request({
+  getClassicLikeStatus = async function(artId,category){
+    const result = await this.request({
       url: 'classic/'+category+'/'+artId+'/favor',
-      success:callback
     })
+    return result
   }
 }
 
