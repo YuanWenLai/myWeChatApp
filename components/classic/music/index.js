@@ -7,7 +7,8 @@ Component({
    * 组件的初始数据
    */
   data: {
-
+    pauseSrc:'images/player@pause.png',
+    playSrc:'images/player@play.png'
   },
 
   /**

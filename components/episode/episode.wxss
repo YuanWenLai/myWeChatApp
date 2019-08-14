@@ -1,0 +1,29 @@
+.container{
+  height: 60rpx;
+  display: inline-flex;
+  flex-direction: row;
+}
+.index-container .plain{
+  font-size: 32rpx;
+  color: rgba(53, 53, 53, 0.71);
+}
+.index-container .index{
+  font-size: 52rpx;
+  line-height: 60rpx;
+  font-weight: 600;
+  color: black;
+}
+.index-container .line {
+  height: 54rpx;
+  border-left: 1.8rpx black solid;
+  position: relative;
+  bottom: 6rpx;
+  margin: 0 12rpx;
+}
+.date-container{
+  display: flex;
+  flex-direction: column;
+  font-size: 20rpx;
+  justify-content: center;
+  align-items: center;
+}

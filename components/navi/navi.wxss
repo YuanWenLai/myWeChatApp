@@ -1,0 +1,19 @@
+.container{
+  height: 80rpx;
+  width: 600rpx;
+  background-color: #f7f7f7;
+  border-radius: 24rpx;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container image{
+  height: 80rpx;
+  width: 80rpx;
+}
+
+.container .title{
+  font-size: 28rpx;
+}

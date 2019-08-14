@@ -1,36 +1,21 @@
-/* pages/classic/classic.wxss */
-
-.nav{
-  display: flex;
-}
-
-.nav .nav-right{
-  display: flex;
-  flex-direction: row-reverse;
-}
-
-
-.container image{
+.container{
   width: 100%;
-}
-
-.container text {
-  font-size: 32rpx;
-  display: block;
+  display: flex;
   flex-direction: column;
+  align-items: center;
+}
+.nav{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  height: 52rpx;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #f5f5f5;
+  border-bottom: 1px solid #f5f5f5;
 }
 
-.textContainer{
-  position: relative;
-  left: 10px;
-  top: -53px;
-  z-index: 9999;
-}
-.textContainer text{
-  font-family: "PingFangSC-Thin";
-  font-size: 36px;
-  color: rgba(145, 142, 201, 0.21);
-}
-.content{
-  text-align: center;
+.navi{
+  position: absolute;
+  bottom: 100rpx;
 }

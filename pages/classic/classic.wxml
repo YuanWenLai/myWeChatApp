@@ -1,16 +1,23 @@
 <!--pages/classic/classic.wxml-->
-<view class="nav">
-    <v-epsoide index="{{classicData.index}}"></v-epsoide>
-    <view class="nav-right">
-        <v-like
-                count="{{classicData.fav_nums}}"
-                like="{{classicData.like_status}}"
-                art_id="{{classicData.id}}"
-                type="{{classicData.type}}">
-        </v-like>
+<view class="container">
+    <view class="nav">
+        <v-epsoide index="{{classicData.index}}"></v-epsoide>
+        <view class="nav-right">
+            <v-like
+                    count="{{classicData.fav_nums}}"
+                    like="{{classicData.like_status}}"
+                    art_id="{{classicData.id}}"
+                    type="{{classicData.type}}">
+            </v-like>
+        </view>
     </view>
-
+    <v-movie content="{{classicData.content}}"></v-movie>
+    <v-navi bind:left="onNext"
+            bind:right="onPrev"
+            title="{{classicData.title}}"
+            latest="{{latest}}"
+            first="{{first}}" class="navi"></v-navi>
 </view>
 
 
-<v-movie content="{{classicData.content}}"></v-movie>
+

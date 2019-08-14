@@ -14,7 +14,9 @@ Page({
    */
   
   data: {
-    classicData:null
+    classicData:null,
+    latest:true,
+    first:false
   },
 
   /**
@@ -27,15 +29,28 @@ Page({
       })
       console.log(this.data.classicData)
     })
-
-    /*http.request({
-      method:'Get',
-      url:'classic/latest',
-      success:(res)=>{
-        console.log(res)
-      }
-    },)*/
     //一开始就加载最新期刊
+  },
+
+  onNext:function(){
+    classicModel.getNext(this.data.classicData.index,(res)=>{
+      this.setData({
+        classicData : res,
+        latest:classicModel.isLatest(res.index),
+        first:classicModel.isFirst(res.index)
+      })
+    })
+  },
+  onPrev:function(){
+    classicModel.getPrev(this.data.classicData.index,(res)=>{
+    /*  let latest = res.index< 8 ? false : true
+      let first = res.index === 1 ? true :false*/
+      this.setData({
+        classicData : res,
+        latest:classicModel.isLatest(res.index),
+        first:classicModel.isFirst(res.index)
+      })
+    })
   },
 
   /**
