@@ -4,14 +4,17 @@
         <v-epsoide index="{{classicData.index}}"></v-epsoide>
         <view class="nav-right">
             <v-like
-                    count="{{classicData.fav_nums}}"
-                    like="{{classicData.like_status}}"
-                    art_id="{{classicData.id}}"
-                    type="{{classicData.type}}">
+                    bind:like="onLike"
+                    count="{{likeCount}}"
+                    like="{{likeStatus}}"
+                    >
             </v-like>
         </view>
     </view>
-    <v-movie content="{{classicData.content}}"></v-movie>
+    <v-movie wx:if="{{classicData.type==100}}" content="{{classicData.content}}" img="{{classicData.image}}"></v-movie>
+    <v-music wx:if="{{classicData.type==200}}" content="{{classicData.content}}" img="{{classicData.image}}"
+             src="{{classicData.url}}" title="{{classicData.title}}"></v-music>
+    <v-essay wx:if="{{classicData.type==300}}" content="{{classicData.content}}" img="{{classicData.image}}"></v-essay>
     <v-navi bind:left="onNext"
             bind:right="onPrev"
             title="{{classicData.title}}"

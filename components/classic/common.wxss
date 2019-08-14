@@ -1,0 +1,25 @@
+/*movie和essay复用css*/
+.classic-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.classic-container .movie_bg{
+  width: 750rpx;
+  height: 500rpx;
+}
+
+.classic-container .movie_tag{
+  position: relative;
+  top: -58rpx;
+  right: 330rpx;
+  width: 46rpx;
+  height: 142rpx;
+  z-index: 100;
+}
+
+.classic-container .content{
+  font-size: 36rpx;
+  max-width: 550rpx;
+}

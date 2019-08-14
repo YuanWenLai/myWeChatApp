@@ -1,6 +1,6 @@
 // components/like/index.js
-import {Http} from '../../utils/http.js'
-let http = new Http()
+
+
 Component({
   /**
    * 组件的属性列表
@@ -40,28 +40,9 @@ Component({
         count:count,
         like:like,
       })
-
-      let url
-      if(like){
-        url = 'like'
-      }else{
-        url = "like/cancle"
-      }
-      http.request({
-        url,
-        method: 'Post',
-        data: {
-          art_id:this.data.art_id,
-          type:this.data.type
-        },
-        success: (res) => {
-          wx.showToast({
-            title:res.message,
-            icon:'none',
-            duration:800
-          })
-        },
-      })
+      //激活点赞事件
+      let behavior = this.data.like ? 'like':'cancle'
+      this.triggerEvent('like',{behavior:behavior},{})
     },
   }
 })

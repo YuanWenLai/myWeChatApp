@@ -1,7 +1,10 @@
 // pages/classic/classic.js
 import { Base64 } from 'js-base64'
 import {ClassicModel} from "../../models/classic";
+import {LikeModel} from "../../models/like";
+
 const classicModel = new ClassicModel()
+const likeModel = new LikeModel()
 Page({
   // 用于校验token
   _encode() {
@@ -16,7 +19,9 @@ Page({
   data: {
     classicData:null,
     latest:true,
-    first:false
+    first:false,
+    likeStatus:false,
+    likeCount:0
   },
 
   /**
@@ -25,15 +30,29 @@ Page({
   onLoad: function (options) {
     classicModel.getLatest((res)=>{
       this.setData({
-        classicData : res
+        classicData : res,
+        likeStatus:res.like_status,
+        likeCount:res.fav_nums
       })
-      console.log(this.data.classicData)
     })
     //一开始就加载最新期刊
   },
+  onLike:function(event){
+    const behavior = event.detail.behavior
+    likeModel.like(behavior,this.data.classicData.id,this.data.classicData.type)
+  },
 
   onNext:function(){
-    classicModel.getNext(this.data.classicData.index,(res)=>{
+    this._updateClassic('next')
+  },
+  onPrev:function(){
+    this._updateClassic('prev')
+  },
+
+  //更新期刊状态
+  _updateClassic(nextOrPrev){
+    classicModel.getClassic(this.data.classicData.index,nextOrPrev,(res)=>{
+      this._getClassicStatus(res.id,res.type)
       this.setData({
         classicData : res,
         latest:classicModel.isLatest(res.index),
@@ -41,14 +60,13 @@ Page({
       })
     })
   },
-  onPrev:function(){
-    classicModel.getPrev(this.data.classicData.index,(res)=>{
-    /*  let latest = res.index< 8 ? false : true
-      let first = res.index === 1 ? true :false*/
+
+  //获取点赞信息
+  _getClassicStatus(artId,category){
+    likeModel.getClassicLikeStatus(artId,category,(res)=>{
       this.setData({
-        classicData : res,
-        latest:classicModel.isLatest(res.index),
-        first:classicModel.isFirst(res.index)
+        likeStatus:res.like_status,
+        likeCount:res.fav_nums
       })
     })
   },
