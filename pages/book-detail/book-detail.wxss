@@ -1,0 +1,95 @@
+.container{
+  background-color: #f5f5f5;
+  width: 100%;
+}
+.head{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  padding-top: 80rpx 0 40rpx 0;
+}
+.head image{
+  width: 200rpx;
+  height: 300rpx;
+  box-shadow: 2px 2px 3px #e3e3e3;
+}
+.title{
+  font-size: 38rpx;
+  font-weight: 600;
+  margin-top: 20rpx;
+  color: #2f2f2f;
+}
+.author{
+  font-size: 28rpx;
+  color: #999;
+}
+
+.sub-container{
+  width: 690rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30rpx;
+  background-color: #fff;
+  padding: 30rpx;
+}
+
+.headline{
+  font-size: 34rpx;
+  font-weight: 600;
+  color: #2f2f2f;
+  margin-bottom: 20rpx;
+}
+.content{
+  font-weight: 500;
+  text-indent: 58rpx;
+}
+
+.detail-container{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.vertical{
+  display: flex;
+  flex-direction: column;
+  padding-right: 30rpx;
+  margin-bottom: 100rpx;
+}
+
+/*输入评论区样式*/
+.post-container{
+  height: 100rpx;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 1px -1px 1px #e3e3e3;
+  background-color: #fff;
+}
+
+.post-fake{
+  height: 60rpx;
+  width: 400rpx;
+  font-size: 24rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 20rpx;
+  margin-left: 40rpx;
+  border: 1px solid #999;
+  border-radius: 15px;
+}
+.post-container .share{
+  height: 45rpx;
+  width: 45rpx;
+  position: relative;
+  top: 8rpx;
+  margin: 0 30rpx;
+}

@@ -6,19 +6,21 @@ Page({
    * 页面的初始数据
    */
   data: {
-    bookList:[]
+    comments:[1,23,4],
+    book:null,
+    likeStatus:false,
+    likeCount:0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad:async function (options) {
-    //一开始就加载热门书籍
+  onLoad: async function (options) {
+    const id = options.bid
+    const book_detail = await bookModel.getBookDetail(id)
     this.setData({
-      bookList: await bookModel.getHotList()
+      book:book_detail
     })
-    console.log(this.data.bookList)
-   
   },
 
   /**
