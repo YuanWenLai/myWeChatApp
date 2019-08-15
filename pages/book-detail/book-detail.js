@@ -1,4 +1,7 @@
 import {BookModel} from "../../models/book";
+import {LikeModel} from "../../models/like";
+
+const likeModel = new LikeModel()
 const bookModel = new BookModel()
 Page({
 
@@ -9,7 +12,8 @@ Page({
     comments:[],
     book:null,
     likeStatus:false,
-    likeCount:0
+    likeCount:0,
+    posting:false
   },
 
   /**
@@ -19,11 +23,33 @@ Page({
     const id = options.bid
     const book_detail = await bookModel.getBookDetail(id)
     const comments = await bookModel.getComments(id)
+    const likeStatus = await likeModel.getBookLikeStatus(id)
     this.setData({
       book:book_detail,
-      comments:comments
+      comments:comments,
+      likeStatus:likeStatus.like_status,
+      likeCount:likeStatus.fav_nums
     })
-    console.log(this.data.comments)
+  },
+
+  //点赞操作
+  onLike:async function(event){
+    const behavior = event.detail.behavior
+    const id = this.data.book.id
+    await likeModel.like(behavior,id,400)
+  },
+
+  //输入框点击
+  onFakePost:async function(event){
+    this.setData({
+      posting:true
+    })
+  },
+
+  onPostCancle:function(){
+    this.setData({
+      posting:false
+    })
   },
 
   /**

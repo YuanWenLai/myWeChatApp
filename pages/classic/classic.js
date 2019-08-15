@@ -29,6 +29,7 @@ Page({
       likeStatus:res.like_status,
       likeCount:res.fav_nums
     })
+
   },
   onLike:async function(event){
     const behavior = event.detail.behavior

@@ -1,6 +1,14 @@
+//字符解析过滤器和短评数量过滤器
 var format = function(text){
   var reg = getRegExp('\\\\n',"g")
   return text.replace(reg, '\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;')
 }
 
-module.exports = {format:format}
+var limit = function(array,lenght){
+  return array.splice(0,lenght)
+}
+
+module.exports = {
+  format:format,
+  limit:limit
+  }

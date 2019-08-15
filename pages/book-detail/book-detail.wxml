@@ -9,7 +9,7 @@
         <text class="headline">短评</text>
         <text wx:if="{{comments == false}}" class="shadow" >还没有短评</text>
         <view class="comment-container">
-            <block wx:for="{{comments}}" wx:key="">
+            <block wx:for="{{util.limit(comments,15)}}" wx:key="">
                 <v-tag tag-class="ex-tag1" text="{{item.content}}">
                     <text class="num" slot="after">{{'+'+item.nums}}</text>
                 </v-tag>
@@ -39,13 +39,29 @@
             </view>
         </view>
     </view>
-    <view class="post-container">
-        <view class="post-fake">
-            <text>输入短评</text>
-        </view>
-        <view class="like-container">
-            <v-like></v-like>
-            <image class="share" src="/images/icon/share.png"></image>
-        </view>
+
+</view>
+<view hidden="{{posting}}" class="post-container">
+    <view bind:tap="onFakePost" class="post-fake">
+        <text>输入短评</text>
     </view>
+    <view   class="like-container">
+        <v-like bind:like="onLike" like="{{likeStatus}}" count="{{likeCount}}" ></v-like>
+        <image class="share" src="/images/icon/share.png"></image>
+    </view>
+
+</view>
+<view hidden="{{!posting}}" class="posting-container">
+    <view class="post-header">
+        <text>仅点击标签+1</text>
+        <text bind:tap="onPostCancle" class="cancle">取消</text>
+    </view>
+    <view class="comment-container">
+        <block wx:for="{{util.limit(comments,3)}}" wx:key="">
+            <v-tag tag-class="ex-tag1" text="{{item.content}}">
+                <text class="num" slot="after">{{'+'+item.nums}}</text>
+            </v-tag>
+        </block>
+    </view>
+    <input class="post"  placeholder="短评最多12个字" class="post"></input>
 </view>

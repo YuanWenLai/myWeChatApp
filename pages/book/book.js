@@ -18,7 +18,6 @@ Page({
       bookList: await bookModel.getHotList()
     })
     console.log(this.data.bookList)
-   
   },
 
   /**

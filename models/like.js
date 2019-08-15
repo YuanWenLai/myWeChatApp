@@ -19,6 +19,11 @@ class LikeModel extends Http{
     })
     return result
   }
+  getBookLikeStatus = async function(bookId){
+    return await this.request({
+      url: `book/${bookId}/favor`,
+    })
+  }
 }
 
 export {LikeModel}
