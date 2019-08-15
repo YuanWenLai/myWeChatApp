@@ -1,0 +1,17 @@
+/*.container{
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 28rpx;
+}*/
+
+/*
+.container text{
+  margin-right: 20rpx;
+  margin-top: 20rpx;
+  padding: 4rpx 12rpx;
+  border-radius: 2px;
+  color: #666;
+  background-color: #f5f5f5;
+}*/

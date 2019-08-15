@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    comments:[1,23,4],
+    comments:[],
     book:null,
     likeStatus:false,
     likeCount:0
@@ -18,9 +18,12 @@ Page({
   onLoad: async function (options) {
     const id = options.bid
     const book_detail = await bookModel.getBookDetail(id)
+    const comments = await bookModel.getComments(id)
     this.setData({
-      book:book_detail
+      book:book_detail,
+      comments:comments
     })
+    console.log(this.data.comments)
   },
 
   /**

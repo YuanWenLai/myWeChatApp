@@ -1,3 +1,4 @@
+<wxs src="../../utils/filter.wxs" module="util" />
 <view class="container">
     <view class="head">
         <image src="{{book.image}}"></image>
@@ -8,14 +9,16 @@
         <text class="headline">短评</text>
         <text wx:if="{{comments == false}}" class="shadow" >还没有短评</text>
         <view class="comment-container">
-            <block>
-                <text>{{comments}}</text>
+            <block wx:for="{{comments}}" wx:key="">
+                <v-tag tag-class="ex-tag1" text="{{item.content}}">
+                    <text class="num" slot="after">{{'+'+item.nums}}</text>
+                </v-tag>
             </block>
         </view>
     </view>
     <view class="sub-container">
         <text class="headline">内容简介</text>
-        <text class="content">{{book.summary}}</text>
+        <text class="content" decode="{{true}}">{{book?util.format(book.summary):book.summary}}</text>
     </view>
     <view class="sub-container">
         <text class="headline">书本信息</text>

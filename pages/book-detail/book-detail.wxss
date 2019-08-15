@@ -2,6 +2,8 @@
   background-color: #f5f5f5;
   width: 100%;
 }
+
+/*书籍图片信息*/
 .head{
   display: flex;
   flex-direction: column;
@@ -12,17 +14,19 @@
 .head image{
   width: 200rpx;
   height: 300rpx;
+  margin-top: 40rpx;
   box-shadow: 2px 2px 3px #e3e3e3;
 }
 .title{
   font-size: 38rpx;
   font-weight: 600;
-  margin-top: 20rpx;
+  margin: 20rpx 0 15rpx 0;
   color: #2f2f2f;
 }
 .author{
   font-size: 28rpx;
   color: #999;
+  margin-bottom: 30rpx;
 }
 
 .sub-container{
@@ -58,6 +62,40 @@
   flex-direction: column;
   padding-right: 30rpx;
   margin-bottom: 100rpx;
+}
+
+/*评论显示样式*/
+.comment-container{
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  font-size: 28rpx;
+}
+.comment-container v-tag{
+  margin-right: 20rpx;
+  margin-bottom: 20rpx;
+  padding: 4rpx 12rpx;
+  border-radius: 5px;
+  color: #666;
+  background-color: #f5f5f5;
+}
+
+.comment-container > v-tag:nth-child(1){
+  background-color: #fffddd;
+}
+
+.comment-container > v-tag:nth-child(2){
+  background-color: #ddfffa;
+}
+
+/*.ex-tag1{
+  background-color: #fffddd ;
+}*/
+
+.comment-container .num{
+  font-size: 26rpx;
+  padding-left: 24rpx;
+  color: #c2c2c2;
 }
 
 /*输入评论区样式*/

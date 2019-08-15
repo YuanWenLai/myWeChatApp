@@ -22,6 +22,7 @@ class BookModel extends Http {
   getComments = async function(id){
     return await this.request({url:`book/${id}/short_comment`})
   }
+
 }
 
 export {
