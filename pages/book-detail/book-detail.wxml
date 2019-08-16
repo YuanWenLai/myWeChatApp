@@ -51,17 +51,20 @@
     </view>
 
 </view>
+<v-mask wx:if="{{posting}}" bind:tap="onPostCancle"></v-mask>
 <view hidden="{{!posting}}" class="posting-container">
+
     <view class="post-header">
-        <text>仅点击标签+1</text>
+        <text wx:if="{{comments != false}}">仅点击标签+1</text>
+        <text wx:if="{{comments == false}}" class="shadow" >请添加短评</text>
         <text bind:tap="onPostCancle" class="cancle">取消</text>
     </view>
-    <view class="comment-container">
+    <view wx:if="{{comments != false}}" class="comment-container">
         <block wx:for="{{util.limit(comments,3)}}" wx:key="">
-            <v-tag tag-class="ex-tag1" text="{{item.content}}">
+            <v-tag bind:trigger="onPost" tag-class="ex-tag1" text="{{item.content}}">
                 <text class="num" slot="after">{{'+'+item.nums}}</text>
             </v-tag>
         </block>
     </view>
-    <input class="post"  placeholder="短评最多12个字" class="post"></input>
+    <input bindconfirm="onPost" class="post"  placeholder="短评最多12个字" class="post"></input>
 </view>

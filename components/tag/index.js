@@ -14,6 +14,8 @@ Component({
 
   attached:function(){
   },
+
+
   /**
    * 组件的初始数据
    */
@@ -25,6 +27,8 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    onPost(event){
+      this.triggerEvent('trigger',{text:this.data.text},{})
+    }
   }
 })

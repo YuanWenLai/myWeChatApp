@@ -20,6 +20,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: async function (options) {
+    wx.showLoading({title:'loading'})
     const id = options.bid
     const book_detail = await bookModel.getBookDetail(id)
     const comments = await bookModel.getComments(id)
@@ -30,6 +31,9 @@ Page({
       likeStatus:likeStatus.like_status,
       likeCount:likeStatus.fav_nums
     })
+    setTimeout(async function(){
+     await wx.hideLoading()
+    },400)
   },
 
   //点赞操作
@@ -50,6 +54,35 @@ Page({
     this.setData({
       posting:false
     })
+  },
+
+  //点击评论加一
+  onPost:async function(event){
+    const content = event.detail.text || event.detail.value
+    if(!content){
+      return
+    }
+    if(content.length>12){
+      wx.showToast({
+        title:'短评最多12个字'
+      })
+      return
+    }
+    const result = await bookModel.postComment(this.data.book.id,content)
+    if(result.error_code ===1){
+      this.data.comments.unshift({
+        content,
+        nums:1
+      })
+      //更新了数组之后还要更新数据
+      this.setData({
+        comments:this.data.comments
+      })
+      wx.showToast({
+        title:'+1'
+      })
+      this.onPostCancle()
+    }
   },
 
   /**

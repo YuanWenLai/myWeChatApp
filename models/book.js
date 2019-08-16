@@ -23,6 +23,18 @@ class BookModel extends Http {
     return await this.request({url:`book/${id}/short_comment`})
   }
 
+  //提交评论
+  postComment = async function(bid,content){
+    return await this.request({
+      url:'book/add/short_comment',
+      data:{
+        book_id:bid,
+        content
+      },
+      method:'Post'
+    })
+  }
+
 }
 
 export {
