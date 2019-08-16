@@ -5,9 +5,7 @@ class BookModel extends Http {
   getHotList = async function () {
     return await this.request({url: 'book/hot_list'})
   }
-  getMyBookCount = async function(){
-    return await this.request({url: 'book/favor/count'})
-  }
+
 
   //获取热门书籍详情信息
   getBookDetail = async function(id){
@@ -35,6 +33,21 @@ class BookModel extends Http {
     })
   }
 
+  //获取热门搜索书籍标签
+  getHotBookTap = async function(){
+    return await this.request({url:'book/hot_keyword'})
+  }
+
+  //搜索书籍
+  search = async function(start,q){
+    return await this.request({
+      url:'book/search',
+      data:{
+        q,
+        start
+      }
+    })
+  }
 }
 
 export {

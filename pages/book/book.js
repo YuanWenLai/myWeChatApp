@@ -6,18 +6,35 @@ Page({
    * 页面的初始数据
    */
   data: {
-    bookList:[]
+    bookList:[],
+    searching:false,
+    hotBookArray:[]
   },
 
+  //点击打开搜索
+  onSearch:function(e){
+    this.setData({
+      searching : true
+    })
+  },
+
+  //点击取消关闭搜索
+  onCancle:function(){
+    this.setData({
+      searching : false
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad:async function (options) {
+    const result = await bookModel.getHotBookTap()
     //一开始就加载热门书籍
     this.setData({
-      bookList: await bookModel.getHotList()
+      bookList: await bookModel.getHotList(),
+      hotBookArray:result.hot
     })
-    console.log(this.data.bookList)
+    console.log(this.data.hotBookArray)
   },
 
   /**

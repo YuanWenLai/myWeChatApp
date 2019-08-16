@@ -18,6 +18,9 @@
   border-bottom: 1px solid #ebecec;
   border-top: 1px solid #ebecec;
   padding: 16rpx;
+  z-index: 999;
+  background-color: #fff;
+  opacity: 0.85;
 }
 
 .search-container{
@@ -36,11 +39,11 @@
 .clean{
   width: 28rpx;
   height: 28rpx;
-  margin-right: 20rpx;
+  padding: 16rpx 28rpx;
 }
 
 .post{
-  width: 520rpx;
+  width: 466rpx;
   height: 70rpx;
 }
 
@@ -68,8 +71,6 @@
   flex-direction: column;
   margin-top: 20rpx;
 }
-
-
 .title {
   line-height: 30rpx;
   display: flex;
@@ -83,7 +84,6 @@
   display: inline-block;
   margin-right: 20rpx;
 }
-
 .tap-container{
   display: inline-flex;
   flex-direction: row;
@@ -100,4 +100,26 @@
   color: #666;
   background-color: #f5f5f5;
   margin-bottom: 18rpx;
+}
+
+/*搜索后的书籍样式*/
+.book-container{
+  margin-top: 130rpx;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0 90rpx;
+}
+
+.book-container v-book{
+  margin-bottom: 16rpx;
+}
+
+.empty-tip{
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 37%;
+  color: #585858;
 }

@@ -1,6 +1,8 @@
 
-<view class="container">
-    <view class="header">
+<v-search bind:cancleSearch="onCancle" hotArray="{{hotBookArray}}"  wx:if="{{searching}}"></v-search>
+
+<view hidden="{{searching}}"  class="container">
+    <view bind:tap="onSearch" class="header">
         <view class="box">
             <image src="/images/icon/search.png"></image>
             <text>搜索书籍</text>
@@ -15,4 +17,6 @@
         </view>
     </view>
 </view>
+
+
 

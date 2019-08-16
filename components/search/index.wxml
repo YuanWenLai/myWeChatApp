@@ -2,8 +2,8 @@
     <view class="header">
         <view class="search-container">
             <image class="search-img" src="./images/search.png"></image>
-            <input bindconfirm="onConfirm" class="post"  placeholder="搜索书籍" auto-focus="true"></input>
-            <image class="clean" src="./images/cancel.png"></image>
+            <input bindconfirm="onConfirm" class="post"  placeholder="搜索书籍" auto-focus="true" value="{{inputValue}}"></input>
+            <image bind:tap="onClean" class="clean" src="./images/cancel.png"></image>
         </view>
         <view bind:tap="onCancle" class="cancle">取消</view>
     </view>
@@ -15,7 +15,7 @@
             </view>
             <view  class="tap-container">
                 <block wx:for="{{historyArray}}" wx:key="">
-                    <v-tag  text="{{item}}">
+                    <v-tag bind:trigger="onConfirm"  text="{{item}}">
                     </v-tag>
                 </block>
             </view>
@@ -27,10 +27,16 @@
             </view>
             <view  class="tap-container">
                 <block wx:for="{{hotArray}}" wx:key="">
-                    <v-tag  text="{{item}}">
+                    <v-tag bind:trigger="onConfirm"   text="{{item}}">
                     </v-tag>
                 </block>
             </view>
         </view>
+    </view>
+    <view hidden="{{!isSearching}}" class="book-container">
+        <block wx:key="item.id" wx:for="{{dataArray}}">
+            <v-book book="{{item}}"></v-book>
+        </block>
+        <text wx:if="{{noResult}}" class="empty-tip">没有搜索到书籍</text>
     </view>
 </view>
