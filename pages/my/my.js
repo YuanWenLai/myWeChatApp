@@ -5,6 +5,21 @@ Page({
    * 页面的初始数据
    */
   data: {
+    avatartUrl:'',
+    userName:'',
+    authorized:false
+  },
+
+  getUserInfo(event){
+    if(event.detail.cloudID){
+      this.setData({
+        avatarUrl:event.detail.userInfo.avatarUrl,
+        userName:event.detail.userInfo.nickName,
+        authorized:true
+      })
+    }else {
+      console.log(99)
+    }
 
   },
 
@@ -12,7 +27,19 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    wx.getUserInfo({
+      success: res =>  {
+        if(res.cloudID){
+          this.setData({
+            avatarUrl:res.userInfo.avatarUrl,
+            userName:res.userInfo.nickName,
+            authorized:true
+          })
+        }else {
+          console.log(99)
+        }
+      }
+    })
   },
 
   /**
