@@ -1,5 +1,5 @@
 
-<v-search bind:cancleSearch="onCancle" hotArray="{{hotBookArray}}"  wx:if="{{searching}}"></v-search>
+<v-search more="{{more}}" bind:cancleSearch="onCancle" hotArray="{{hotBookArray}}"  wx:if="{{searching}}"></v-search>
 
 <view hidden="{{searching}}"  class="container">
     <view bind:tap="onSearch" class="header">

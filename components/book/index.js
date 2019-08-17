@@ -11,10 +11,14 @@ Component({
    * 组件的初始数据
    */
   attached:function () {
-    //console.log(this.data.book)
+    if (this.data.book.fav_nums == null){
+      this.setData({
+        hasFavNums:true
+      })
+    }
   },
   data: {
-
+    hasFavNums:false
   },
 
   /**

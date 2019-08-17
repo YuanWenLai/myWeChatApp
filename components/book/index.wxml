@@ -4,7 +4,7 @@
         <text class="title">{{book.title}}</text>
         <text class="author">{{book.author}}</text>
         <view class="foot">
-            <text class="footer">{{book.fav_nums}} 喜欢</text>
+            <text hidden="{{hasFavNums}}" class="footer">{{book.fav_nums}} 喜欢</text>
         </view>
     </view>
 </view>
