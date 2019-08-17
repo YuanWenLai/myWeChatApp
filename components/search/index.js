@@ -15,11 +15,7 @@ Component({
   properties: {
     historyArray:Array,
     hotArray:Array,
-    //dataArray:Array,
-    more:{
-      type:String,
-      observer:'loadMore'
-    }
+
   },
   attached: async function(){
     const historyWords = keywordModel.getHistory()
@@ -35,10 +31,7 @@ Component({
   data: {
     isSearching:false,
     hasHistory:false,
-    noResult:false,
-    inputValue:'',
-    loading:false,
-    total:0
+
   },
 
   /**
@@ -54,7 +47,8 @@ Component({
     onClean(e){
       this.setData({
         isSearching:false,
-        inputValue:''
+        inputValue:'',
+        dataArray:[]
       })
     },
 
@@ -62,7 +56,7 @@ Component({
     loadMore:async function(){
       //用loading来控制，一次只加载一条请求，锁的思想,total来控制没有更多数据请求
       if(this.hasMore()){
-        this.myShowLoading('努力中...')
+        this.handleLoadingBottom(true)
         this.isLocked(true)
         await bookModel.search(this.getArrarLenght(),this.data.inputValue)
           .then(ret=>{
@@ -72,7 +66,7 @@ Component({
             this.myShowToast('抱歉，无法连接')
           })
         this.isLocked(false)
-        wx.hideLoading()
+        this.handleLoadingBottom(false)
         return
       }
       if(this.getArrarLenght() === 11){
@@ -89,7 +83,7 @@ Component({
         return
       }
       this.setSearching(inputValue)
-      this.myShowLoading('努力中...')
+      this.handleLoadingCenter(true)
       await bookModel.search(0,inputValue)
         .then(res=>{
           this.setMoreData(res.books)
@@ -100,7 +94,7 @@ Component({
           this.myShowToast('抱歉，无法连接')
         })
       this.cheackResult()
-      wx.hideLoading()
+      this.handleLoadingCenter(false)
     }
   }
 })

@@ -3,14 +3,16 @@ const paginationBev = Behavior({
     dataArray:Array,
     more:{
       type:String,
-      observer:'_load_more'
+      observer:'loadMore'
     }
   },
   data:{
     noResult:false,
     inputValue:'',
     loading:false,
-    total:0
+    total:0,
+    loadingCenter:false,
+    loadingBottom:false
   },
   methods:{
     //设置搜索的数据
@@ -47,10 +49,19 @@ const paginationBev = Behavior({
         inputValue
       })
     },
-    //显示加载loading
-    myShowLoading(title){
-      wx.showLoading({
+    //显示加载中间loading
+    handleLoadingCenter(status){
+      this.setData({
+        loadingCenter:status
+      })
+      /*wx.showLoading({
         title:title
+      })*/
+    },
+    //显示加载中间loading
+    handleLoadingBottom(status){
+      this.setData({
+        loadingBottom:status
       })
     },
     //设置请求锁
