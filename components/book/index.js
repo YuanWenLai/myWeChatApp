@@ -25,6 +25,7 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    //页面跳转
     onTap(e){
       const bid = this.data.book.id
       wx.navigateTo({

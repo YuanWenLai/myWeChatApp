@@ -5,6 +5,7 @@
     "v-epsoide": "/components/episode/episode",
     "v-navi": "/components/navi/navi",
     "v-music": "/components/classic/music/index",
-    "v-essay": "/components/classic/essay/index"
+    "v-essay": "/components/classic/essay/index",
+    "v-button": "/components/image-button/index"
   }
 }

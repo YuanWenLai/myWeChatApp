@@ -17,6 +17,7 @@
   height: 120rpx;
   position: relative;
   bottom: 270rpx;
+  opacity: 0.7;
 }
 
 .classic-container .tag{

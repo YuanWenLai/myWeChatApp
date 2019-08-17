@@ -49,15 +49,12 @@
   visibility: hidden;
 }
 
-.btn-login{
-  height: 130rpx;
-  width: 130rpx;
-  border-radius: 100rpx;
-  overflow: hidden;
-  border: 1px solid rgba(114, 0, 243, 0.79);
-  line-height: 130rpx;
-  font-size: 38rpx;
-  background: url("/images/my/my.png");
+.study{
+  height: 100rpx;
+  width: 100rpx;
+  position: absolute;
+  top: 50rpx;
+  right: 40rpx;
 }
 
 .about-container {

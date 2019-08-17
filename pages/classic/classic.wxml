@@ -1,4 +1,4 @@
-<!--pages/classic/classic.wxml-->
+
 <view class="container">
     <view class="nav">
         <v-epsoide index="{{classicData.index}}"></v-epsoide>
@@ -9,6 +9,9 @@
                     like="{{likeStatus}}"
                     >
             </v-like>
+            <v-button  open-type="share" class="share-img" >
+                <image class="avatar" slot="img" src="/images/icon/share.png"></image>
+            </v-button>
         </view>
     </view>
     <v-movie wx:if="{{classicData.type==100}}" content="{{classicData.content}}" img="{{classicData.image}}"></v-movie>

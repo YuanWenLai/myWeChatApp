@@ -19,3 +19,17 @@
   position: absolute;
   bottom: 100rpx;
 }
+
+.nav-right{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.share-img image{
+  height: 42rpx;
+  width: 42rpx;
+  padding: 0 10rpx;
+  position: relative;
+  top:8rpx;
+}

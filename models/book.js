@@ -48,6 +48,11 @@ class BookModel extends Http {
       }
     })
   }
+
+  //获取喜欢书籍的数量
+  getFavorCount = async function(){
+    return await this.request({url:'book/favor/count'})
+  }
 }
 
 export {

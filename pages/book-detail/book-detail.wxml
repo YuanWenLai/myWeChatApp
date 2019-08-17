@@ -47,9 +47,10 @@
     </view>
     <view   class="like-container">
         <v-like bind:like="onLike" like="{{likeStatus}}" count="{{likeCount}}" ></v-like>
-        <image class="share" src="/images/icon/share.png"></image>
+        <v-button  open-type="share" class="share-img" >
+            <image class="avatar" slot="img" src="/images/icon/share.png"></image>
+        </v-button>
     </view>
-
 </view>
 <v-mask wx:if="{{posting}}" bind:tap="onPostCancle"></v-mask>
 <view hidden="{{!posting}}" class="posting-container">

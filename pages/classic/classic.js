@@ -24,6 +24,7 @@ Page({
   onLoad: async function(){
     //一开始就加载最新期刊
     const res = await classicModel.getLatest()
+    console.log(res)
     this.setData({
       classicData : res,
       likeStatus:res.like_status,
@@ -108,6 +109,6 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    console.log(111)
   }
 })

@@ -72,6 +72,7 @@
   font-size: 28rpx;
   flex-direction: column;
   margin-top: 20rpx;
+  margin-left: 20rpx;
 }
 .title {
   line-height: 30rpx;

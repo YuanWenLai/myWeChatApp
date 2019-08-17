@@ -1,4 +1,5 @@
-// pages/my/my.js
+import {BookModel} from "../../models/book";
+const bookModel = new BookModel()
 Page({
 
   /**
@@ -7,26 +8,40 @@ Page({
   data: {
     avatartUrl:'',
     userName:'',
-    authorized:false
+    authorized:false,
+    count:0
   },
 
-  getUserInfo(event){
+  //用戶登陆授权
+  onGetUserInfo(event){
     if(event.detail.cloudID){
       this.setData({
         avatarUrl:event.detail.userInfo.avatarUrl,
         userName:event.detail.userInfo.nickName,
         authorized:true
       })
-    }else {
-      console.log(99)
     }
+  },
 
+  //跳转个人介绍
+  onJumpToAbout(){
+    wx.navigateTo({
+      url:`/pages/about/about`
+    })
+  },
+
+  //跳转个人学习
+  onStudy(){
+    wx.navigateTo({
+      url:`/pages/study/study`
+    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: async function (options) {
+    //只要授权过才能触发getUserInfo
     wx.getUserInfo({
       success: res =>  {
         if(res.cloudID){
@@ -35,10 +50,11 @@ Page({
             userName:res.userInfo.nickName,
             authorized:true
           })
-        }else {
-          console.log(99)
         }
       }
+    })
+    this.setData({
+      count: await bookModel.getFavorCount()
     })
   },
 

@@ -124,12 +124,25 @@
   border: 1px solid #999;
   border-radius: 15px;
 }
-.post-container .share{
+/*.post-container .share{
   height: 45rpx;
   width: 45rpx;
   position: relative;
   top: 8rpx;
   margin: 0 30rpx;
+}*/
+.like-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.share-img image{
+  height: 42rpx;
+  width: 42rpx;
+  padding: 0 20rpx;
+  position: relative;
+  top:8rpx;
 }
 
 /*真正编写评论区*/
@@ -181,6 +194,8 @@
 .shadow {
   color: #999;
 }
+
+
 
 
 
