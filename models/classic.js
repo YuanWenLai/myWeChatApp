@@ -34,6 +34,22 @@ class ClassicModel extends Http{
     return Promise.resolve(classic)
   }
 
+  //获取用户收藏期刊
+  getMyClassFavor=async function(){
+    return  await this.request({
+      method:'Get',
+      url:'classic/favor',
+    })
+  }
+
+  //获得某一期的详情信息
+  getClassDetail=async function(type,id){
+    return  await this.request({
+      method:'Get',
+      url:`classic/${type}/${id}`,
+    })
+  }
+
 
   isFirst(index){
     return index === 1?true:false

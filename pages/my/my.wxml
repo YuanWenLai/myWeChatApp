@@ -17,8 +17,15 @@
             <text>喜欢的书</text>
         </view>
     </view>
+    <view class="like-container">
+        <image class="headline" src="/images/my/like.png"></image>
+        <view class="preview-container">
+            <block wx:for="{{classics}}" wx:key="">
+                <v-preview bind:priviewItem="onPriview" class="preview" classic="{{item}}"></v-preview>
+            </block>
+        </view>
+    </view>
 
-    <v-preview></v-preview>
 
 </view>
 

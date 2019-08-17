@@ -15,7 +15,8 @@ Page({
     latest:true,
     first:false,
     likeStatus:false,
-    likeCount:0
+    likeCount:0,
+    needNavi:true
   },
 
   /**
@@ -24,7 +25,6 @@ Page({
   onLoad: async function(){
     //一开始就加载最新期刊
     const res = await classicModel.getLatest()
-    console.log(res)
     this.setData({
       classicData : res,
       likeStatus:res.like_status,

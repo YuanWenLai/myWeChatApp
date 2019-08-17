@@ -1,10 +1,8 @@
-<view class="container">
+<view bind:tap="onPreview" class="container">
     <view class="head">
-        <v-tag text="{{typeText}}"></v-tag>
-        <v-like read-only="{{true}}"
-                like="{{likeStatus}}"
-                count="{{likeCount}}" ></v-like>
+        <v-tag text="{{typeText}}" class="tag"></v-tag>
+        <v-like class="like" read-only="{{true}}" like="{{true}}" count="{{classic.fav_nums}}" />
     </view>
-    <image src="{{classic.image}}"></image>
+    <image class="{{classic.type==200?'music-img':'other-img'}}" src="{{classic.image}}"></image>
     <view class="text">{{classic.content}}</view>
 </view>

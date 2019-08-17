@@ -1,0 +1,1 @@
+<v-classic needNavi="{{false}}" classic="{{classic}}" cid="{{cid}}" type="{{type}}" />

@@ -5,7 +5,8 @@
     "pages/my/my",
     "pages/book-detail/book-detail",
     "pages/about/about",
-    "pages/study/study"
+    "pages/study/study",
+    "pages/classic-detail/classic-detail"
   ],
   "requiredBackgroundModes": [
     "audio",

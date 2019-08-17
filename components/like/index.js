@@ -15,6 +15,9 @@ Component({
     },
     type:{
       type:Number
+    },
+    readOnly:{
+      type:Boolean
     }
   },
 
@@ -31,6 +34,9 @@ Component({
    */
   methods: {
     onLike(e){
+      if(this.data.readOnly){
+        return
+      }
       let like = !this.data.like
       let count = like?this.data.count+1 : this.data.count-1
       this.setData({

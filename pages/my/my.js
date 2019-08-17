@@ -1,5 +1,8 @@
 import {BookModel} from "../../models/book";
+import {ClassicModel} from "../../models/classic";
+
 const bookModel = new BookModel()
+const classModel = new ClassicModel()
 Page({
 
   /**
@@ -9,7 +12,8 @@ Page({
     avatartUrl:'',
     userName:'',
     authorized:false,
-    count:0
+    count:0,
+    classics:null
   },
 
   //用戶登陆授权
@@ -37,6 +41,29 @@ Page({
     })
   },
 
+  //点击个人喜欢周刊跳转
+  onPriview:async function(event){
+    const id = event.detail.id
+    const type = event.detail.type
+    const ret = await classModel.getClassDetail(type,id)
+    wx.navigateTo({
+      url: `/pages/classic-detail/classic-detail`,
+      events: {
+      },
+      success: function(res) {
+        // 通过eventChannel向被打开页面传送数据
+        res.eventChannel.emit('acceptDataFromOpenerPage', { data: ret })
+      }
+    })
+    /*wx.navigateTo(
+      {url:`/pages/classic-detail/classic-detail`},
+      event:{},
+      success: function(res) {
+      // 通过eventChannel向被打开页面传送数据
+      res.eventChannel.emit('acceptDataFromOpenerPage', { data: 'test' })
+    })*/
+
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -53,8 +80,10 @@ Page({
         }
       }
     })
+    //获取用户喜欢的
     this.setData({
-      count: await bookModel.getFavorCount()
+      count: await bookModel.getFavorCount(),
+      classics:await classModel.getMyClassFavor()
     })
   },
 

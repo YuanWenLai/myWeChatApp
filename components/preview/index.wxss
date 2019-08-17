@@ -20,6 +20,7 @@
   margin-top:-2rpx;
   height:40rpx;
   width:72rpx ;
+  text-align: center;
   font-size:24rpx;
   background-color:#f7f7f7 !important;
 }
@@ -43,7 +44,7 @@
 .text{
   padding:30rpx;
   font-size:28rpx;
-  height:130rpx;
+  height:120rpx;
   color:#666666;
   overflow: hidden;
 }

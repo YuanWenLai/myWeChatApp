@@ -18,7 +18,8 @@
     <v-music wx:if="{{classicData.type==200}}" content="{{classicData.content}}" img="{{classicData.image}}"
              src="{{classicData.url}}" title="{{classicData.title}}"></v-music>
     <v-essay wx:if="{{classicData.type==300}}" content="{{classicData.content}}" img="{{classicData.image}}"></v-essay>
-    <v-navi bind:left="onNext"
+    <v-navi wx:if="{{needNavi}}"
+            bind:left="onNext"
             bind:right="onPrev"
             title="{{classicData.title}}"
             latest="{{latest}}"
