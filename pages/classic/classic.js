@@ -33,16 +33,12 @@ Page({
    */
   onLoad: async function(){
     //一开始就加载最新期刊
-    console.log(this.data.cid)
-    console.log(this.data.type)
     const res = await classicModel.getLatest()
     this.setData({
       classicData : res,
       likeStatus:res.like_status,
       likeCount:res.fav_nums
     })
-    console.log(1)
-    console.log(this.data.classicData)
   },
   onLike:async function(event){
     const behavior = event.detail.behavior

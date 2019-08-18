@@ -8,9 +8,35 @@ const tips = {
   3001:'期刊不存在'
 }
 class Http {
-  request({url, data={}, method="Get"}){
-    return new Promise((resolve,reject)=>{
+  async request({url, data={}, method="Get"}){
+    /*
+    * 1.
+    * */
+    const hasToken = wx.getStorageSync('token')
+    if(!hasToken){
+      await this._autoLogin()
+    }
+    /*else if(hasToken){
+      console.log('checkToken')
       wx.request({
+        url:config.api_base_url+'token/verify',
+        method:"Post",
+        data:{
+          token:hasToken
+        },
+        success:(ret)=>{
+          const tokenStatus = ret.data.result
+          if(!tokenStatus){
+            console.log('expire!')
+            this._autoLogin()
+            this.request({url})
+          }
+          //wx.setStorageSync('token',ret.data.token)
+        },
+      })
+    }*/
+    return await new Promise((resolve,reject)=>{
+        wx.request({
         url:config.api_base_url+url,
         method:method,
         data:data,
@@ -18,6 +44,10 @@ class Http {
           Authorization: this._encode()
         },
         success:(res)=>{
+          /*if(res.data.statusCode === 403){
+            this._autoLogin()
+            return
+          }*/
           const code = res.statusCode
           if(code.toString().startsWith('2')){
             resolve(res.data)
@@ -34,9 +64,32 @@ class Http {
     })
   }
 
+  _autoLogin(){
+    console.log(233)
+    wx.login({
+      success(res) {
+        wx.request({
+          url:config.api_base_url+'token/',
+          method:"Post",
+          data:{
+            account:res.code,
+            type:100
+          },
+          success:(ret)=>{
+            console.log('logining...')
+            wx.setStorageSync('token',ret.data.token)
+          },
+          fail(err) {
+            this._show_error(1)
+          }
+        })
+      }
+    })
+  }
   _encode() {
     const token = wx.getStorageSync('token')
-    const base64 = Base64.encode('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsInNjb3BlIjo4LCJpYXQiOjE1NjUwNzg4OTQsImV4cCI6MTU2NzY3MDg5NH0.RSC0fxDeIKcT2VYK1rK1ouviT0wAzW6ZNj2L7061sRA' + ':')
+    console.log(wx.getStorageSync('token'))
+    const base64 = Base64.encode(token+ ':')
     return "Basic " + base64
   }
 

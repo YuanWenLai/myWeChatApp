@@ -64,6 +64,7 @@ Page({
     //只要授权过才能触发getUserInfo
     wx.getUserInfo({
       success: res =>  {
+        console.log(res)
         if(res.cloudID){
           this.setData({
             avatarUrl:res.userInfo.avatarUrl,
@@ -71,6 +72,11 @@ Page({
             authorized:true
           })
         }
+      }
+    })
+    wx.login({
+      success(res) {
+        console.log(res)
       }
     })
     //获取用户喜欢的

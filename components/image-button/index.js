@@ -30,7 +30,6 @@ Component({
    */
   methods: {
     onGetUserInfo(event){
-      console.log(323)
       this.triggerEvent('getuserinfo',event.detail,{})
     }
   }

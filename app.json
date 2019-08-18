@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/myMusic/myMusic",
     "pages/classic/classic",
     "pages/book/book",
     "pages/my/my",
@@ -25,6 +26,12 @@
     "color": "#000000",
     "selectedColor": "#000000",
     "list": [
+      {
+        "selectedIconPath": "/images/tab/classic@highlight.png",
+        "pagePath": "pages/myMusic/myMusic",
+        "text": "音乐",
+        "iconPath": "/images/tab/classic.png"
+      },
       {
         "selectedIconPath": "/images/tab/classic@highlight.png",
         "pagePath": "pages/classic/classic",
