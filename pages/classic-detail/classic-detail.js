@@ -5,20 +5,22 @@ Page({
    * 页面的初始数据
    */
   data: {
-      classic:null
+    classicData:null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function () {
+    //接受跳转路由传过来的数据
+    const that = this
     const eventChannel = this.getOpenerEventChannel()
-    eventChannel.on('acceptDataFromOpenerPage', function(data) {
-      console.log(data)
-      /*this.setData({
-        classic:data
-      })*/
+    eventChannel.on('acceptDataFromOpenerPage', function(res) {
+      that.setData({
+        classicData:res.data
+      })
     })
+    console.log(this.data.classicData)
   },
 
   /**

@@ -1,5 +1,10 @@
 {
   "usingComponents": {
-    "v-classic": "/pages/classic/classic"
+    "v-like": "/components/like/index",
+    "v-movie":"/components/classic/movie/index",
+    "v-epsoide": "/components/episode/episode",
+    "v-music": "/components/classic/music/index",
+    "v-essay": "/components/classic/essay/index",
+    "v-button": "/components/image-button/index"
   }
 }

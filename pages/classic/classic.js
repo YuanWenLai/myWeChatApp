@@ -9,6 +9,15 @@ Page({
   /**
    * 页面的初始数据
    */
+
+ /* properties: {
+    cid: Number,
+    type: Number,
+    needNavi:{
+      type:Boolean,
+      value:true
+    }
+  },*/
   
   data: {
     classicData:null,
@@ -24,13 +33,16 @@ Page({
    */
   onLoad: async function(){
     //一开始就加载最新期刊
+    console.log(this.data.cid)
+    console.log(this.data.type)
     const res = await classicModel.getLatest()
     this.setData({
       classicData : res,
       likeStatus:res.like_status,
       likeCount:res.fav_nums
     })
-
+    console.log(1)
+    console.log(this.data.classicData)
   },
   onLike:async function(event){
     const behavior = event.detail.behavior

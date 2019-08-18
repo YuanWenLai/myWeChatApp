@@ -45,23 +45,16 @@ Page({
   onPriview:async function(event){
     const id = event.detail.id
     const type = event.detail.type
-    const ret = await classModel.getClassDetail(type,id)
+    const result = await classModel.getClassDetail(type,id)
     wx.navigateTo({
       url: `/pages/classic-detail/classic-detail`,
       events: {
       },
       success: function(res) {
         // 通过eventChannel向被打开页面传送数据
-        res.eventChannel.emit('acceptDataFromOpenerPage', { data: ret })
+        res.eventChannel.emit('acceptDataFromOpenerPage', { data: result })
       }
     })
-    /*wx.navigateTo(
-      {url:`/pages/classic-detail/classic-detail`},
-      event:{},
-      success: function(res) {
-      // 通过eventChannel向被打开页面传送数据
-      res.eventChannel.emit('acceptDataFromOpenerPage', { data: 'test' })
-    })*/
 
   },
   /**
