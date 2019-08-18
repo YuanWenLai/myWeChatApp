@@ -2,7 +2,7 @@
   height: 80rpx;
   width: 600rpx;
   background-color: #f7f7f7;
-  border-radius: 24rpx;
+  border-radius: 50rpx;
   display: inline-flex;
   flex-direction: row;
   justify-content: space-between;

@@ -23,32 +23,32 @@
   },
   "sitemapLocation": "sitemap.json",
   "tabBar": {
-    "color": "#000000",
-    "selectedColor": "#000000",
+    "color": "#8a8a8a",
+    "selectedColor": "#1296db",
     "list": [
       {
-        "selectedIconPath": "/images/tab/classic@highlight.png",
+        "selectedIconPath": "/images/tab/Music@.png",
         "pagePath": "pages/myMusic/myMusic",
         "text": "音乐",
-        "iconPath": "/images/tab/classic.png"
+        "iconPath": "/images/tab/Music.png"
       },
       {
-        "selectedIconPath": "/images/tab/classic@highlight.png",
+        "selectedIconPath": "/images/tab/classic@.png",
         "pagePath": "pages/classic/classic",
         "text": "周刊",
         "iconPath": "/images/tab/classic.png"
       },
       {
-        "selectedIconPath": "/images/tab/book@highlight.png",
+        "selectedIconPath": "/images/tab/book@.png",
         "pagePath": "pages/book/book",
         "text": "书籍",
         "iconPath": "/images/tab/book.png"
       },
       {
-        "selectedIconPath": "/images/tab/my@highlight.png",
+        "selectedIconPath": "/images/tab/people@.png",
         "pagePath": "pages/my/my",
         "text": "个人",
-        "iconPath": "/images/tab/my.png"
+        "iconPath": "/images/tab/people.png"
       }
     ]
   }
