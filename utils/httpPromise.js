@@ -1,5 +1,6 @@
 import { Base64 } from 'js-base64'
 import {config} from '../config.js'
+import {TokenMedol} from "../models/token";
 
 const tips = {
   1:'抱歉，出现了错误',
@@ -9,86 +10,55 @@ const tips = {
 }
 class Http {
   async request({url, data={}, method="Get"}){
-    /*
-    * 1.
-    * */
-    const hasToken = wx.getStorageSync('token')
-    if(!hasToken){
-      await this._autoLogin()
-    }
-    /*else if(hasToken){
-      console.log('checkToken')
-      wx.request({
-        url:config.api_base_url+'token/verify',
-        method:"Post",
-        data:{
-          token:hasToken
-        },
-        success:(ret)=>{
-          const tokenStatus = ret.data.result
-          if(!tokenStatus){
-            console.log('expire!')
-            this._autoLogin()
-            this.request({url})
-          }
-          //wx.setStorageSync('token',ret.data.token)
-        },
-      })
-    }*/
     return await new Promise((resolve,reject)=>{
-        wx.request({
-        url:config.api_base_url+url,
-        method:method,
-        data:data,
-        header: {
-          Authorization: this._encode()
-        },
-        success:(res)=>{
-          /*if(res.data.statusCode === 403){
-            this._autoLogin()
-            return
-          }*/
-          const code = res.statusCode
-          if(code.toString().startsWith('2')){
-            resolve(res.data)
+        this._request(url,data,method,resolve,reject)
+    })
+  }
+
+  //检查令牌失效，二次重发
+  _refresh(url,data,method,resolve,reject){
+    //二次重发机制，再次重发后，hadRefresh设置true，证明已经刷新过，防止无限循环
+    const tokenMedol = new TokenMedol()
+    tokenMedol.getTokenFormServer((token)=>{
+      this._request(url,data,method,resolve,reject,true)
+    })
+  }
+
+  //封装请求函数
+  _request(url,data,method,resolve,reject,hadRefresh=false){
+    wx.request({
+      url:config.api_base_url+url,
+      method:method,
+      data:data,
+      header: {
+        Authorization: this._encode()
+      },
+      success:(res)=>{
+        const code = res.statusCode
+        if(code.toString().startsWith('2')){
+          resolve(res.data)
+        }else {
+          if(res.statusCode === 403){
+            if(!hadRefresh){
+              this._refresh(url,data,method,resolve)
+            }
           }else {
             reject()
             this._show_error(res.data.errCodee)
           }
-        },
-        fail(err) {
-          reject()
-          this._show_error(1)
         }
-      })
-    })
-  }
-
-  _autoLogin(){
-    console.log(233)
-    wx.login({
-      success(res) {
-        wx.request({
-          url:config.api_base_url+'token/',
-          method:"Post",
-          data:{
-            account:res.code,
-            type:100
-          },
-          success:(ret)=>{
-            console.log('logining...')
-            wx.setStorageSync('token',ret.data.token)
-          },
-          fail(err) {
-            this._show_error(1)
-          }
-        })
+      },
+      fail(err) {
+        reject()
+        this._show_error(1)
       }
     })
   }
+
+
+  //将token再次编译，用于Authorization检测
   _encode() {
     const token = wx.getStorageSync('token')
-    console.log(wx.getStorageSync('token'))
     const base64 = Base64.encode(token+ ':')
     return "Basic " + base64
   }
