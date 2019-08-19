@@ -7,17 +7,17 @@ Page({
    * 页面的初始数据
    */
   data: {
-    text:''
+    musicList:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad:async function (options) {
-    const ret = await myMusicMedol.getMusicIndex()
     this.setData({
-      text:ret
+      musicList:await myMusicMedol.getMusicHotList()
     })
+    console.log(this.data.musicList)
   },
 
   /**

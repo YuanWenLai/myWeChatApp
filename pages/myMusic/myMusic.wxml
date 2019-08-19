@@ -1,1 +1,16 @@
-<text>{{text}}</text>
+
+<view class="container">
+    <view class="hot_list">
+        <view class="hot_list_title">
+            热门歌单
+        </view>
+        <view class="list_container">
+            <block wx:for="{{musicList}}" wx:key="">
+                <view class="music_container">
+                    <image src="{{item.image}}"></image>
+                    <text>{{item.title}}</text>
+                </view>
+            </block>
+        </view>
+    </view>
+</view>
