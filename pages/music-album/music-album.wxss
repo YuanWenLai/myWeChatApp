@@ -1,0 +1,44 @@
+.container{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.bg-image{
+  width: 100%;
+  height: 450rpx;
+  overflow: hidden;
+}
+.bg-image image{
+  width: 100%;
+}
+
+.image-content{
+  width: 100%;
+  height: 450rpx;
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background-color: rgba(0, 0, 0, 0.45);
+  color: #f0ffff;
+  z-index: 999;
+}
+
+.introduce{
+  padding-left: 60rpx;
+  box-sizing: border-box;
+}
+.image-content image{
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 20rpx;
+}
+
+.love-share{
+  color: #fff;
+}

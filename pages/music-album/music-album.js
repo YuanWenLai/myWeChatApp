@@ -7,19 +7,22 @@ Page({
    * 页面的初始数据
    */
   data: {
-    musicLists:[],
-    recommendList:[]
+    albumList:[],
+    bgImageUrl:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad:async function (options) {
+    const type = options.type
+    const albumList = await myMusicModel.getMusicAlbum(type)
     this.setData({
-      musicLists:await myMusicModel.getMusicHotList(),
-      recommendList:await myMusicModel.getRecommendList()
+      albumList:albumList,
+      bgImageUrl:options.image
     })
   },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

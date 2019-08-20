@@ -1,21 +1,29 @@
 import {Http} from "../utils/httpPromise";
 
-class MyMusicMedol extends Http{
+class MyMusicModel extends Http{
 
-  getMusicIndex=async function(){
-    return  await this.request({
-      method:'Get',
-      url:'music',
-    })
-  }
-
+  //获取热门歌单
   getMusicHotList = async function(){
     return await this.request({
       url:'music/getHotList'
     })
   }
+
+  //获取推荐歌单
+  getRecommendList = async function(){
+    return await this.request({
+      url:'music/recommendMusic'
+    })
+  }
+
+  //获取单个专辑的歌单
+  getMusicAlbum = async function (type) {
+    return await this.request({
+      url:`music/musicList/${type}`
+    })
+  }
 }
 
 export {
-  MyMusicMedol
+  MyMusicModel
 }

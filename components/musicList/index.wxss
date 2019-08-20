@@ -1,0 +1,22 @@
+.list_container{
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.music_container{
+  width: 210rpx;
+  height: 250rpx;
+  margin: 15rpx 15rpx;
+}
+.list_container image{
+  width: 210rpx;
+  height: 210rpx;
+  border-radius: 10px;
+}
+.list_container text{
+  font-size: 24rpx;
+  font-weight: 400;
+}

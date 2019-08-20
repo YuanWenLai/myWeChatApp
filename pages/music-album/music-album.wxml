@@ -1,0 +1,16 @@
+<view class="container">
+    <view class="bg-image">
+        <image src="{{bgImageUrl}}" class="bg"></image>
+        <view class="image-content">
+            <view class="introduce">
+                <image src="{{bgImageUrl}}"></image>
+                <text>666</text>
+            </view>
+        </view>
+    </view>
+    <view class="love-share">
+        <v-like></v-like>
+        <v-buttom></v-buttom>
+    </view>
+    <view class="music-list"></view>
+</view>

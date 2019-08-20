@@ -5,10 +5,31 @@
             热门歌单
         </view>
         <view class="list_container">
-            <block wx:for="{{musicList}}" wx:key="">
-                <view class="music_container">
-                    <image src="{{item.image}}"></image>
-                    <text>{{item.title}}</text>
+            <block wx:for="{{musicLists}}" wx:key="">
+                <v-music-list musicList="{{item}}"></v-music-list>
+            </block>
+        </view>
+    </view>
+    <view class="recommend-container">
+        <view class="hot_list_title">
+            歌曲推荐
+        </view>
+        <view class="recommend-music">
+            <block wx:for="{{recommendList}}" wx:key="">
+                <view class="music">
+                    <view class="image-title">
+                        <image src="{{item.image}}"></image>
+                        <view class="music-title">
+                            <view >{{item.title}}</view>
+                            <view class="music-content">
+                                <image src="/images/icon/alone.png"></image>
+                                {{item.content}}
+                            </view>
+                        </view>
+                    </view>
+                   <view class="icon">
+                       <image src="/images/icon/more.png"></image>
+                   </view>
                 </view>
             </block>
         </view>
