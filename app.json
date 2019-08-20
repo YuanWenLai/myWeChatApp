@@ -8,7 +8,8 @@
     "pages/about/about",
     "pages/study/study",
     "pages/classic-detail/classic-detail",
-    "pages/music-album/music-album"
+    "pages/music-album/music-album",
+    "pages/music-play/music-play"
   ],
   "requiredBackgroundModes": [
     "audio",

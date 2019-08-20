@@ -20,10 +20,13 @@ attached:function(){
    */
   methods: {
     onMusicList:function () {
+      console.log(this.data.musicList)
       const type = this.data.musicList.type
+      const content = this.data.musicList.content
       const image = this.data.musicList.image
+      const fav_nums = this.data.musicList.fav_nums
       wx.navigateTo({
-        url:`/pages/music-album/music-album?type=${type}&image=${image}`,
+        url:`/pages/music-album/music-album?type=${type}&image=${image}&content=${content}&fav_nums=${fav_nums}`,
       })
     }
   }

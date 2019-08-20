@@ -1,5 +1,5 @@
 {
   "usingComponents": {
-    "v-music-list": "/components/musicList/index"
+    "v-music-list": "/components/albumList/index"
   }
 }

@@ -1,16 +1,31 @@
+
 <view class="container">
     <view class="bg-image">
         <image src="{{bgImageUrl}}" class="bg"></image>
         <view class="image-content">
             <view class="introduce">
                 <image src="{{bgImageUrl}}"></image>
-                <text>666</text>
+                <view class="introduce-content">
+                {{content}}
+                <view class="user">
+                    <image src="/images/icon/user.png"></image>
+                    <text>Cavin</text>
+                </view>
+            </view>
             </view>
         </view>
     </view>
     <view class="love-share">
-        <v-like></v-like>
-        <v-buttom></v-buttom>
+        <v-like class="like" count="{{likeCount}}" like="{{likeStatus}}"></v-like>
+        <v-button  open-type="share" class="share-img" >
+            <image class="avatar" slot="img" src="/images/icon/share.png"></image>
+        </v-button>
     </view>
-    <view class="music-list"></view>
+    <view class="music-list-container">
+        <block wx:for="{{albumList}}" wx:key="">
+            <v-music musicList="{{item}}">
+            </v-music>
+        </block>
+
+    </view>
 </view>

@@ -1,30 +1,25 @@
-import {MyMusicModel} from "../../models/myMusic";
-
-const myMusicModel = new MyMusicModel()
+// pages/music-play/music-play.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    albumList:[],
-    bgImageUrl:'',
-    content:'',
-    likeCount:0
+    music:null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad:async function (options) {
-    const type = options.type
-    const albumList = await myMusicModel.getMusicAlbum(type)
-    this.setData({
-      albumList:albumList,
-      bgImageUrl:options.image,
-      content:options.content,
-      likeCount:options.fav_nums
+  onLoad: function () {
+    const that = this
+    const eventChannel = this.getOpenerEventChannel()
+    eventChannel.on('sendData', function(data) {
+      that.setData({
+        music:data.data
+      })
     })
+    console.log(this.data.music)
   },
 
   /**
