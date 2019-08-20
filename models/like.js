@@ -14,6 +14,9 @@ class LikeModel extends Http{
     return result
   }
   getClassicLikeStatus = async function(artId,category){
+    console.log(233)
+    console.log(artId)
+    console.log(category)
     const result = await this.request({
       url: 'classic/'+category+'/'+artId+'/favor',
     })

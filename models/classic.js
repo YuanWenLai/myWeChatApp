@@ -28,6 +28,7 @@ class ClassicModel extends Http{
       })
       //缓存期刊
       classic.then(res=>{
+        console.log(res)
         wx.setStorageSync(this._getKey(res.index),res)
        })
     }

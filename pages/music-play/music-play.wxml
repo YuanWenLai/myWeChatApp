@@ -1,2 +1,33 @@
-<!--pages/music-play/music-play.wxml-->
-<text>pages/music-play/music-play.wxml</text>
+<view class="container">
+    <view class="music-play-container">
+        <view class="music-title">
+            {{music.title}}
+        </view>
+        <view class="music-singer">
+            {{music.singer}}
+        </view>
+        <view class="music-image">
+            <image src="{{music.image}}"></image>
+        </view>
+        <view class="live-like-play">
+            <view class="mv">
+                <image src="/images/icon/mv.png"></image>
+            </view>
+            <view class="player" bind:tap="onPlay">
+                <image src="{{isPlaying?pauseUrl : playUrl}}"></image>
+            </view>
+            <view class="like">
+                <v-like></v-like>
+            </view>
+            <view class="share">
+                <v-button  open-type="share" class="share-img" >
+                    <image  slot="img" src="/images/icon/share.png"></image>
+                </v-button>
+            </view>
+        </view>
+    </view>
+    <view class="music-comment">
+
+    </view>
+    <v-music-playing music="{{music}}"></v-music-playing>
+</view>

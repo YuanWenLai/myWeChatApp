@@ -1,1 +1,56 @@
-/* pages/music-play/music-play.wxss */
+.container{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.music-play-container{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.music-image image{
+  width: 480rpx;
+  height: 480rpx;
+}
+.music-title{
+  color: #444444;
+  font-weight: 550;
+}
+.music-singer{
+  font-size: 26rpx;
+  color: #b2b2b2;
+  margin-bottom: 20rpx;
+}
+.live-like-play{
+  width: 100rpx;
+  width: 560rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin: 20rpx 0;
+}
+
+.mv image{
+  height: 84rpx;
+  width: 84rpx;
+}
+
+.player image{
+  height: 70rpx;
+  width: 70rpx;
+}
+
+.share image{
+  height: 70rpx;
+  width: 70rpx;
+  position: relative;
+  top: 10rpx;
+}

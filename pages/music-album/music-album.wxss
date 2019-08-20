@@ -77,8 +77,8 @@
   border-radius: 12rpx;
  }
 .avatar {
-  height: 50rpx;
-  width: 50rpx;
+  height: 68rpx;
+  width: 66rpx;
   position: relative;
-  top: 10rpx;
+  top: 16rpx;
 }

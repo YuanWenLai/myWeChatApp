@@ -34,4 +34,7 @@
             </block>
         </view>
     </view>
+    <view class="music-playing">
+        <v-music-playing></v-music-playing>
+    </view>
 </view>

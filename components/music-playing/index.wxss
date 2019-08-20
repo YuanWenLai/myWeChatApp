@@ -1,0 +1,37 @@
+.container{
+  height: 80rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  background-color: #ffffff;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+}
+.music-content{
+  height: 90rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.music-content image{
+  width: 90rpx;
+  height: 90rpx;
+  position: relative;
+  bottom: 12rpx;
+  border-radius: 50px;
+  margin-right: 10rpx;
+}
+.music-play image{
+  width: 70rpx;
+  height: 70rpx;
+}
+.music-title{
+  font-size: 28rpx;
+  color: #606060;
+}

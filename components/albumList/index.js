@@ -20,7 +20,6 @@ attached:function(){
    */
   methods: {
     onMusicList:function () {
-      console.log(this.data.musicList)
       const type = this.data.musicList.type
       const content = this.data.musicList.content
       const image = this.data.musicList.image

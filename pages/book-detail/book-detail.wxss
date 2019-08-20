@@ -138,11 +138,11 @@
   align-items: center;
 }
 .share-img image{
-  height: 42rpx;
-  width: 42rpx;
-  padding: 0 20rpx;
+  height: 66rpx;
+  width: 64rpx;
+  padding: 0 10rpx;
   position: relative;
-  top:8rpx;
+  top: 14rpx;
 }
 
 /*真正编写评论区*/
