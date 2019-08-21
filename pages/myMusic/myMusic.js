@@ -1,6 +1,9 @@
 import {MyMusicModel} from "../../models/myMusic";
-
+import {HandlePlay} from "../../models/handlePlay";
+const app = getApp();
 const myMusicModel = new MyMusicModel()
+
+const backgroundAudioManager = wx.getBackgroundAudioManager()
 Page({
 
   /**
@@ -8,7 +11,10 @@ Page({
    */
   data: {
     musicLists:[],
-    recommendList:[]
+    recommendList:[],
+    isPlaying:false,
+    music:{},
+    begin:false
   },
 
   /**
@@ -31,7 +37,19 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    const handlePlay = new HandlePlay(this)
+    this.setData({
+      isPlaying:app.globalData.isPlaying,
+      music:wx.getStorageSync('music'),
+      begin:wx.getStorageSync('music') ? true : false
+    })
+    handlePlay._monitorSwitch()
+  },
 
+  onPlay:function(event){
+    const handlePlay = new HandlePlay(this)
+    const stop = event.detail.stop
+    handlePlay.onPlay(stop)
   },
 
   /**

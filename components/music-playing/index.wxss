@@ -35,3 +35,23 @@
   font-size: 28rpx;
   color: #606060;
 }
+
+/*控制图片旋转*/
+
+.rotation{
+  -webkit-transform: rotate(360deg);
+  animation: rotation 15s linear infinite;
+  -moz-animation: rotation 15s linear infinite;
+  -webkit-animation: rotation 15s linear infinite;
+  -o-animation: rotation 15s linear infinite;
+}
+
+@-webkit-keyframes rotation {
+  from{
+    -webkit-transform: rotate(0deg);
+  }
+
+  to{
+    -webkit-transform: rotate(360deg);
+  }
+}

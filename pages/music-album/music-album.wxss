@@ -82,3 +82,7 @@
   position: relative;
   top: 16rpx;
 }
+
+.music-list-container{
+  margin-bottom: 100rpx;
+}

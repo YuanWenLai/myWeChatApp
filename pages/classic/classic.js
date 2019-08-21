@@ -1,5 +1,4 @@
-// pages/classic/classic.js
-import { Base64 } from 'js-base64'
+
 import {ClassicModel} from "../../models/classic";
 import {LikeModel} from "../../models/like";
 

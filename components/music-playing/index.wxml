@@ -1,12 +1,12 @@
-<view class="container">
-    <view class="music-content">
-        <image src="https://p2.music.126.net/arVNcDoCmHm-H3YXJOhERw==/5837307231897040.jpg"></image>
+<view class="container"  >
+    <view class="music-content" bind:tap="handleDispatch" >
+        <image src="{{music.image}}" class="{{isPlaying?'rotation':''}}"></image>
         <view class="music-title">
-            我的秘密
+            {{music.title}}
         </view>
     </view>
 
-    <view class="music-play">
-        <image src="/images/icon/play@.png"></image>
+    <view bind:tap="handlePlay" class="music-play">
+        <image src="{{isPlaying?pauseUrl : playUrl}}"></image>
     </view>
 </view>

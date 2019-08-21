@@ -23,9 +23,11 @@
     </view>
     <view class="music-list-container">
         <block wx:for="{{albumList}}" wx:key="">
-            <v-music musicList="{{item}}">
+            <v-music music="{{item}}">
             </v-music>
         </block>
-
+    </view>
+    <view wx:if="{{begin}}" class="music-playing">
+        <v-music-playing music="{{music}}" isPlaying="{{isPlaying}}" bind:playStatus="onPlay"></v-music-playing>
     </view>
 </view>

@@ -6,6 +6,7 @@ App({
     tokenMedol.verify()
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    isPlaying:false
   }
 })

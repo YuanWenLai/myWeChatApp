@@ -16,25 +16,11 @@
         </view>
         <view class="recommend-music">
             <block wx:for="{{recommendList}}" wx:key="">
-                <view class="music">
-                    <view class="image-title">
-                        <image src="{{item.image}}"></image>
-                        <view class="music-title">
-                            <view >{{item.title}}</view>
-                            <view class="music-content">
-                                <image src="/images/icon/alone.png"></image>
-                                {{item.content}}
-                            </view>
-                        </view>
-                    </view>
-                   <view class="icon">
-                       <image src="/images/icon/more.png"></image>
-                   </view>
-                </view>
+                <v-music-recommend music="{{item}}"></v-music-recommend>
             </block>
         </view>
     </view>
-    <view class="music-playing">
-        <v-music-playing></v-music-playing>
+    <view wx:if="{{begin}}" class="music-playing">
+        <v-music-playing music="{{music}}" isPlaying="{{isPlaying}}" bind:playStatus="onPlay"></v-music-playing>
     </view>
 </view>

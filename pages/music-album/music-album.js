@@ -1,5 +1,7 @@
 import {MyMusicModel} from "../../models/myMusic";
+import {HandlePlay} from "../../models/handlePlay";
 
+const app = getApp();
 const myMusicModel = new MyMusicModel()
 Page({
 
@@ -10,7 +12,10 @@ Page({
     albumList:[],
     bgImageUrl:'',
     content:'',
-    likeCount:0
+    likeCount:0,
+    isPlaying:false,
+    music:{},
+    begin:false
   },
 
   /**
@@ -26,7 +31,11 @@ Page({
       likeCount:options.fav_nums
     })
   },
-
+  onPlay:function(event){
+    const handlePlay = new HandlePlay(this)
+    const stop = event.detail.stop
+    handlePlay.onPlay(stop)
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -38,7 +47,12 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.setData({
+      isPlaying:app.globalData.isPlaying,
+      music:wx.getStorageSync('music'),
+      begin:wx.getStorageSync('music') ? true : false
+    })
+    console.log('myMusicAlbum')
   },
 
   /**

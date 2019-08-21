@@ -1,13 +1,13 @@
 
 <view class="music-list" bind:tap="onMusicPlay">
     <view class="music-title">
-        <text>{{musicList.title}}</text>
+        <text>{{music.title}}</text>
     </view>
     <view class="music-album">
         <view class="music-icon">
             <image src="/images/icon/vip.png"></image>
             <image src="/images/icon/alone.png"></image>
         </view>
-        <view class="music-content">{{musicList.singer}}_{{musicList.content}}</view>
+        <view class="music-content">{{music.singer}}_{{music.content}}</view>
     </view>
 </view>

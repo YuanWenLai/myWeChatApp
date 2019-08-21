@@ -1,6 +1,8 @@
-const backgroundAudioManager = wx.getBackgroundAudioManager()
-Page({
+import {HandlePlay} from "../../models/handlePlay";
 
+const backgroundAudioManager = wx.getBackgroundAudioManager()
+const app = getApp();
+Page({
   /**
    * 页面的初始数据
    */
@@ -8,7 +10,9 @@ Page({
     music:null,
     playUrl:'/images/icon/play.png',
     pauseUrl:'/images/icon/pause.png',
-    isPlaying:false
+    isPlaying:false,
+    begin:false,
+    test:123
   },
 
   /**
@@ -16,64 +20,25 @@ Page({
    */
   onLoad: function () {
     const that = this
+    const handlePlay = new HandlePlay(that)
     //先接受数据，在监听音乐
     const eventChannel = this.getOpenerEventChannel()
     eventChannel.on('sendData', function(data) {
       that.setData({
-        music:data.data
+        music:data.data,
       })
     })
-    if(!this.data.isPlaying){
-      this.onPlay()
+    const isMusic = this.data.music.id == wx.getStorageSync('music').id
+    if(!app.globalData.isPlaying || !isMusic){
+      this.onPlay(isMusic)
     }
-    const url = this.data.music.url
-    this._recoverStatus(url)
-    this._monitorSwitch()
-
+    handlePlay._recoverStatus()
+    handlePlay._monitorSwitch()
   },
   //点击播放暂停
-  onPlay:function (event) {
-    if(!this.data.isPlaying){
-      this.setData({
-        isPlaying:true
-      })
-      backgroundAudioManager.title = this.data.music.title
-      backgroundAudioManager.src = this.data.music.url
-    }else {
-      this.setData({
-        isPlaying:false
-      })
-      backgroundAudioManager.pause()
-    }
-  },
-  //检查是否播放状态
-  _recoverStatus:function (url) {
-    if(backgroundAudioManager.paused){
-      this.setData({
-        isPlaying:false
-      })
-      return
-    }
-    if(backgroundAudioManager.src == url){
-      this.setData({
-        isPlaying:true
-      })
-    }
-  },
-  //播放器监听事件
-  _monitorSwitch:function () {
-    backgroundAudioManager.onPlay(()=>{
-      this._recoverStatus()
-    })
-    backgroundAudioManager.onPause(()=>{
-      this._recoverStatus()
-    })
-    backgroundAudioManager.onStop(()=>{
-      this._recoverStatus()
-    })
-    backgroundAudioManager.onEnded(()=>{
-      this._recoverStatus()
-    })
+  onPlay:function (isMusic) {
+    const handlePlay = new HandlePlay(this)
+    handlePlay.onPlay(isMusic)
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -86,7 +51,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    console.log('myMusicPlaying')
   },
 
   /**

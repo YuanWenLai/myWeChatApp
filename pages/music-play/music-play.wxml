@@ -29,5 +29,5 @@
     <view class="music-comment">
 
     </view>
-    <v-music-playing music="{{music}}"></v-music-playing>
+    <!--<v-music-playing  music="{{music}}" isPlaying="isPlaying"></v-music-playing>-->
 </view>

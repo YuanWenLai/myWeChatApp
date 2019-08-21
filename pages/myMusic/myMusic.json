@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "v-music-list": "/components/albumList/index",
-    "v-music-playing": "/components/music-playing/index"
+    "v-music-playing": "/components/music-playing/index",
+    "v-music-recommend": "/components/recommend-music/index"
   }
 }

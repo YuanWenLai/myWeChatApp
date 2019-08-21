@@ -2,6 +2,7 @@
   "usingComponents": {
     "v-like": "/components/like/index",
     "v-button": "/components/image-button/index",
-    "v-music": "/components/music-list/index"
+    "v-music": "/components/music-list/index",
+    "v-music-playing": "/components/music-playing/index"
   }
 }

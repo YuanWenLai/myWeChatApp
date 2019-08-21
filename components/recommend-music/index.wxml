@@ -1,0 +1,17 @@
+
+<view class="music" bind:tap="onMusicPlay">
+    <view class="image-title">
+        <image src="{{music.image}}"></image>
+        <view class="music-title">
+            <view >{{music.title}}</view>
+            <view class="music-content">
+                <image src="/images/icon/alone.png"></image>
+                {{music.content}}
+            </view>
+        </view>
+    </view>
+    <view class="icon">
+        <image src="/images/icon/more.png"></image>
+    </view>
+</view>
+

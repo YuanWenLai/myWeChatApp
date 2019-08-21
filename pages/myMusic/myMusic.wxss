@@ -34,57 +34,5 @@
   flex-direction: column;
   justify-content: center;
   margin-top: 24rpx;
+  margin-bottom: 100rpx;
 }
-
-.music{
-  width: 100%;
-  height: 120rpx;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: nowrap;
-  box-sizing: border-box;
-  padding: 0rpx 32rpx;
-  margin: 10rpx 0 20rpx 0;
-}
-
-.music image{
-  width: 120rpx;
-  height: 120rpx;
-  border-radius: 20rpx;
-}
-
-.music .icon image{
-  width: 40rpx;
-  height: 40rpx;
-}
-
-.image-title{
-  display: inline-flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.music-title{
-  margin-left: 20rpx;
-  font-size: 30rpx;
-  font-weight: 500;
-}
-.music-content{
-  font-size: 24rpx;
-  font-weight: 300;
-  margin-top: 10rpx;
-}
-
-.music-content image{
-  width: 60rpx;
-  height: 30rpx;
-  border-radius: 0;
-  position: relative;
-  top: 8rpx;
-}
-
-
-
-
