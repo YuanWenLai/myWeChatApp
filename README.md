@@ -11,7 +11,7 @@
 3. 书籍展示，书籍搜索，书籍查看及书籍评论点赞 
 4. 个人收藏页面展示 
 
-### 音乐页面展示
+### 音乐页面展示:o:
 
 ![音乐主页面](https://raw.githubusercontent.com/YuanWenLai/myImg/master/wc1-1.png)![音乐专辑页面](https://raw.githubusercontent.com/YuanWenLai/myImg/master/we1-2.png)
 
