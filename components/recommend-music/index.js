@@ -8,7 +8,7 @@ Component({
   },
 
   attached:function(){
-    console.log(this.data.music)
+
   },
   /**
    * 组件的初始数据
